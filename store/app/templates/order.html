@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-5">
+ <div class="row">
+ <h3>Welcome {{user.username|capfirst}}</h3>
+  <div class="col-sm-2 border-end">
+   <ul class="list-unstyled">
+    <li class="d-grid"><a href="{% url 'orders' %}" class="btn btn-primary">Orders</a></li>
+   </ul>
+  </div>
+  <div class="col-sm-9 offset-sm-1">
+   {% for op in order_placed %}
+   <div class="row">
+    <div>
+      <img src="{{op.product.product_image.url}}" alt="" srcset="" height="150" width="150" />
+    </div>
+    <div class="col-sm-7">
+       <p>Product: {{op.product.title}}</p>
+       <p>Quantity: {{op.quantity}} </p>
+       <p>Price: {{op.product.discount_price}}</p>
+    </div>  
+   </div>
+   {% endfor %}
+  </div>
+ </div>
+</div>
+{% endblock %}

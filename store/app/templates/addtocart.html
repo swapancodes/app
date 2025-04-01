@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+ 
+<h1 class="">Shopping Cart</h1>
+  <div class="contain">
+
+   <div class="card-body">
+    <h3>Cart</h3>
+    {% for c in carts %}
+    <hr/>
+    <div class="row">
+       <div class=""><img src="{{c.product.product_image.url}}" alt="" srcset="" class="" height="150" width="150"> </div>
+       <div class="col-sm-9">
+         <div>
+           <h5>{{c.product.title}}</h5>
+           <p class="">{{c.product.description}}</p>
+           <div class="my-3">
+             <label for="quantity">Quantity:</label>
+             <a class="minus-cart btn" pid="{{c.product.id}}"><i class="fas fa-minus-square fa-lg"></i></a>
+             <span id="quantity">{{c.quantity}}</span>
+             <a class="plus-cart btn" pid="{{c.product.id}}"><i class="fas fa-plus-square fa-lg"></i></a>
+           </div> 
+           <div class="">
+              <a href="#" class="btn btn-sm btn-secondary mr-3 remove-cart" pid="{{c.product.id}}">Remove item </a>
+              <p class="mb"><span><strong>Rs. {{c.product.discount_price}} </strong></span></p>
+           </div>
+          </div>
+         </div>
+       </div>
+    {% endfor %}
+    </div>
+
+  
+    <div class="card-body">
+      <h3>The Total Amount of</h3>
+      <ul class="list-item">
+          <li class="list_group_item ">Amount<span>Rs. <span id="amount"> {{amount}} </span></span></li>
+          <li class="list_group_item">Shipping<span>Rs. 100.00</span></li>
+          <li class="list_group_item">
+          <div>
+             <strong>Total</strong> <small>(including VAT)</small>
+          </div>
+          <span><strong>Rs. <strong id="totalamount">{{total_amout}}</strong></strong></span>
+          </li>
+      </ul>
+      <div class=""><a href="{% url 'checkout' %}" class="btn">Place Order</a></div>
+    </div> 
+
+ </div>
+
+  <div class="">
+    <div class="card-body">
+      <h5 class="mb">We accept</h5>
+      <img src="" alt="" class="">
+    </div>
+  </div>
+
+{% endblock %}

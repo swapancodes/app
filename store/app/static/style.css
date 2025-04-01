@@ -1,0 +1,16 @@
+html{scroll-behavior:smooth;}
+
+nav{background:green;}
+.navbar-nav{display:flex; gap:25px;list-style:none; }
+#navbarSupportedContent{display:flex;}
+.container{background:green;}
+nav{justify-content:space-around; align-items:center;display:flex;}
+
+.row{text-align:center;}
+
+.owl-carousel .item{font-size:24px;text-align:center;margin-top:20px;}
+
+footer p{text-align:center;}
+
+
+

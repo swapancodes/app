@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row">
+   {% for ad in add %}  
+    <div class="card-body">
+       <h3>Address {{forloop.counter}}</h3>
+       <p>Name: {{ad.name}} </p>
+       <p>Locality: {{ad.locality}} </p>
+       <p>City: {{ad.city}} </p>
+       <p>Zipcode: {{ad.zipcode}} </p>
+       <p>State: {{ad.state}} </p>
+     </div>
+   {% endfor %}   
+ </div>
+
+{% endblock %}
